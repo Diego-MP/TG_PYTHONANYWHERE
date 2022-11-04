@@ -1,0 +1,190 @@
+
+{% extends 'app_core/partials/nav_bar.html' %}
+
+{% block content %}
+
+<div class="container">
+
+  <form class="row" action="/cadastrar_cpf" method="POST"> {% csrf_token %}
+
+    <div class="row g-1 p-1">
+      
+      <div class="col-md-6">
+        <div class="form-floating">
+          {{form.cpf}}
+          <label for="floatingInputGrid">CPF</label>
+        </div>
+      </div> 
+
+      <div class="col-md-6">
+        <div class="form-floating">
+          {{form.rg}}
+          <label for="floatingInputGrid">RG</label>
+        </div>
+       </div> 
+
+    </div>   
+      
+    <div class="row g-1 p-1">
+      <div class="col-md"><div class="form-floating">
+        {{form.nome}}
+        <label for="floatingInputGrid">Nome</label>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+      <div class="col-md-12">
+        <div class="form-floating">
+          {{form.nome_social}}
+          <label for="floatingInputGrid">Nome Social</label>
+        </div>
+      </div> 
+    </div>
+
+    <div class="row g-1 p-1">
+            
+      <div class="col-md-4">
+        <div class="form-floating">
+          {{form.cep}}
+          <label for="floatingInputGrid">CEP</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+            <button name="btn_consultar_cep" type="submit" class="btn btn-primary mb-3">Consultar</button>
+        </div>
+       </div> 
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          {{form.cidade}}
+          <label for="floatingInputGrid">Cidade</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+          {{form.estado}}
+          <label for="floatingInputGrid">UF</label>
+        </div>
+      </div>
+    
+    </div>
+
+    <div class="row g-1 p-1">
+    
+      <div class="col-md-6">
+        <div class="form-floating">
+          {{form.endereco}}
+          <label for="floatingInputGrid">Endereço</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+          {{form.endereco_numero}}
+          <label for="floatingInputGrid">Número</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          {{form.complemento}}
+          <label for="floatingInputGrid">Complemento</label>
+        </div>
+      </div>
+    
+    </div>
+    
+    <div class="row g-1 p-1">
+      <div class="col-md-12">
+        <div class="form-floating">
+          {{form.bairro}}
+          <label for="floatingInputGrid">Bairro</label>
+        </div>
+      </div> 
+    </div>
+
+    <div class="row g-1 p-1">
+            
+      <div class="col-md">
+        <div class="form-floating">
+          {{form.telefone1}}
+          <label for="floatingInputGrid">Telefone</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          {{form.contato}}
+          <label for="floatingInputGrid">Contato</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+    
+      <div class="col-md">
+        <div class="form-floating">
+          {{form.telefone2}}
+          <label for="floatingInputGrid">Telefone 2</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          {{form.whatsapp}}
+          <label for="floatingInputGrid">WhatsApp</label>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="row g-1 p-1">
+      <div class="col-md">
+        <div class="form-floating">
+          {{form.email}}
+          <label for="floatingInputGrid">E-mail</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+      <div class="col-md">
+        <div class="form-floating">
+          {{form.observacao}}
+          <label for="floatingInputGrid">Observação</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+
+      <div class="form-check form-switch">
+        {{form.tipo_cliente}}
+        <label class="form-check-label" for="flexSwitchCheckDefault">É Cliente</label>
+      </div>
+      
+      <div class="form-check form-switch">
+        {{form.tipo_fornecedor}}
+        <label class="form-check-label" for="flexSwitchCheckChecked">É Fornecedor</label>
+      </div>
+
+    </div>
+    
+    <div class="row g-1 p-1">
+      
+      <div class="d-grid gap-2">
+          <button name="btn_gravar" class="btn btn-primary" type="submit">Gravar</button>
+          <a href="{% url 'home' %}" class="btn btn-secondary">
+            <button name="btn_cancelar" class="btn btn-secondary" type="button">Cancelar</button>
+          </a>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+    {% endblock content %}

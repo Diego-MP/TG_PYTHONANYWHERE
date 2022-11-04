@@ -1,0 +1,164 @@
+
+{% extends 'app_front/partials/nav_bar.html' %}
+
+{% block content %}
+
+
+{{form_clientes.cliente.id}}
+{{form_cliente.id}}
+<div class="container">
+  <!--ACTION E METHOD DO FORME CONTROLADO PELA VIEW PARA REAPROVEITAR O TEMPLATE-->
+  <form class="row" action="{{url_form_action}}" method="{{method_form}}"> {% csrf_token %}
+
+
+    <div class="row g-1 p-1">
+
+      <div class="col-md-1">
+        <div class="form-floating">
+          <input name="id" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.id}}" readonly>
+          <label for="floatingInputGrid">OS</label>
+        </div>
+      </div>
+      
+
+      <div class="col-md-11">
+        <div class="form-floating">
+          <input name="nome" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.nome}}">
+          <label for="floatingInputGrid">Cliente</label>
+        </div>
+      </div>
+ 
+
+    </div>   
+
+    <div class="row g-1 p-1">
+            
+            <div class="col-md-12">
+              <div class="form-floating">
+                <input name="defeito" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.defeito}}">
+                <label for="floatingInputGrid">Defeito</label>
+              </div>
+            </div>
+    
+    </div>
+
+
+    <div class="row g-1 p-1">
+    
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input name="contato_chamado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.contato_chamado}}">
+          <label for="floatingInputGrid">Contato</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input name="telefone_chamado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.telefone_chamado}}">
+          <label for="floatingInputGrid">Telefone</label>
+        </div>
+      </div>
+    
+    </div>
+
+    <div class="row g-1 p-1">
+    
+     
+       
+        <div class="col-md-4">
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" name="produto" {{block_select}}>                    
+                   
+                  <option value="" selected>-</option>
+                  {% for produto in form_produtos %}
+                        <option value="{{produto.id}}">{{produto.nome}}</option>
+                    {% endfor %}
+                </select>
+                <label for="floatingSelect">Produto</label>
+            </div>
+          </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="equipamento" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.equipamento}}">
+          <label for="floatingInputGrid">Equipamento</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="numero_serie" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.numero_serie}}">
+          <label for="floatingInputGrid">NS</label>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="row g-1 p-1">
+    
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="tecnico" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.tecnico}}">
+          <label for="floatingInputGrid">Tecnico</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="peca" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.peca}}">
+          <label for="floatingInputGrid">Peça</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="valor" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.valor}}">
+          <label for="floatingInputGrid">Valor</label>
+        </div>
+      </div>
+    
+    </div>
+
+    <div class="row g-1 p-1">
+    
+      <div class="col-md-8">
+        <div class="form-floating">
+          <input name="observacao" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.observacao}}">
+          <label for="floatingInputGrid">Observao</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+            <select class="form-select" id="floatingSelect" name="status2">
+            <option selected>{{form_chamado.status}}</option>
+            <option value="Pendente">Pendente</option>
+            <option value="Manutencao" selected>Manutencao</option>
+            <option value="Finalizada">Finalizada</option>
+            <option value="Reprovado">Reprovado</option>
+            </select>
+            <label for="floatingSelect">Status</label>
+        </div>
+      </div>
+
+    </div>
+    
+
+
+    <hr>
+
+    <div class="row g-1 p-1">
+      
+      <div class="d-grid gap-2">
+          <button name="btn_gravar" class="btn btn-primary" type="submit">{{button_context}}</button>
+          <a href="{% url 'home' %}" class="btn btn-secondary">
+            <button name="btn_cancelar" class="btn btn-secondary" type="button">Cancelar</button>
+          </a>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+    {% endblock content %}

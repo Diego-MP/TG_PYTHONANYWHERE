@@ -1,0 +1,197 @@
+
+{% extends 'app_front/partials/nav_bar.html' %}
+
+{% block content %}
+
+<div class="container">
+  <!--ACTION E METHOD DO FORME CONTROLADO PELA VIEW PARA REAPROVEITAR O TEMPLATE-->
+  <form class="row" action="{{url_form_action}}" method="{{method_form}}"> {% csrf_token %}
+
+    <div class="row g-1 p-1">
+
+      <div class="col-md-1">
+        <div class="form-floating">
+          <input name="id" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.id}}" readonly>
+          <label for="floatingInputGrid">Id</label>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input name="numero_identificacao" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.numero_identificacao}}">
+          <label for="floatingInputGrid">N. Identificação</label>
+        </div>
+      </div> 
+
+      <div class="col-md-5">
+        <div class="form-floating">
+            <button name="btn_consultar_cnpj" value="true" type="submit" class="btn btn-primary mb-3">Consultar CNPJ</button>
+        </div>
+       </div> 
+
+    </div>   
+      
+    <div class="row g-1 p-1">
+      <div class="col-md"><div class="form-floating">
+        <input name="nome" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.nome}}">
+        <label for="floatingInputGrid">Nome</label>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input name="apelido" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.apelido}}">
+          <label for="floatingInputGrid">Apelido/Nome Fantasia</label>
+        </div>
+      </div> 
+    </div>
+
+    <div class="row g-1 p-1">
+            
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="cep" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.cep}}">
+          <label for="floatingInputGrid">CEP</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+            <button name="btn_consultar_cep" type="submit" class="btn btn-primary mb-3">Consultar</button>
+        </div>
+       </div> 
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="cidade" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.cidade}}">
+          <label for="floatingInputGrid">Cidade</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+          <input name="estado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.estado}}">
+          <label for="floatingInputGrid">UF</label>
+        </div>
+      </div>
+    
+    </div>
+
+
+    <div class="row g-1 p-1">
+    
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input name="endereco" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.endereco}}">
+          <label for="floatingInputGrid">Endereço</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+          <input name="numero" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.numero}}">
+          <label for="floatingInputGrid">Número</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="complemento" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.complemento}}">
+          <label for="floatingInputGrid">Complemento</label>
+        </div>
+      </div>
+    
+    </div>
+    
+    <div class="row g-1 p-1">
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input name="bairro" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.bairro}}">
+          <label for="floatingInputGrid">Bairro</label>
+        </div>
+      </div> 
+    </div>
+
+    <div class="row g-1 p-1">
+            
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="telefone1" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.telefone1}}">
+          <label for="floatingInputGrid">Telefone</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="contato" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.contato}}">
+          <label for="floatingInputGrid">Contato</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+    
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="telefone2" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.telefone2}}">
+          <label for="floatingInputGrid">Telefone 2</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="whatsapp" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.whatsapp}}">
+          <label for="floatingInputGrid">WhatsApp</label>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="row g-1 p-1">
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="email" type="email" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.email}}">
+          <label for="floatingInputGrid">E-mail</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="observacao" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.observacao}}">
+          <label for="floatingInputGrid">Observação</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+
+      <div class="form-check form-switch">
+        <input name="check_cliente" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" {{form.tipo_cliente}}>
+        <label class="form-check-label" for="flexSwitchCheckDefault">É Cliente</label>
+      </div>
+      
+      <div class="form-check form-switch">
+        <input name="check_fornecedor" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" {{form.tipo_fornecedor}}>
+        <label class="form-check-label" for="flexSwitchCheckChecked">É Fornecedor</label>
+      </div>
+
+    </div>
+    
+    <div class="row g-1 p-1">
+      
+      <div class="d-grid gap-2">
+          <button name="btn_gravar" value="true" class="btn btn-primary" type="submit">{{button_context}}</button>
+          <a href="{% url 'home' %}" class="btn btn-secondary">
+            <button name="btn_cancelar" class="btn btn-secondary" type="button">Cancelar</button>
+          </a>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+    {% endblock content %}

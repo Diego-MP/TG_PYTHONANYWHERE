@@ -1,0 +1,186 @@
+
+{% extends 'app_front/partials/nav_bar.html' %}
+
+{% block content %}
+
+<div class="container">
+  <!--ACTION E METHOD DO FORME CONTROLADO PELA VIEW PARA REAPROVEITAR O TEMPLATE-->
+  <form class="row" action="{% url 'cadastrarvenda' %}" method="{{method_form}}"> {% csrf_token %}
+
+
+    <div class="row g-1 p-1">
+
+      <div class="col-md-2">
+        <div class="form-floating">
+          <input name="id" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_pedido_venda.id}}" readonly>
+          <label for="floatingInputGrid">Venda</label>
+        </div>
+      </div>
+      
+      <div class="col-md-10">
+
+        <div class="form-floating">
+            <select class="form-select" id="floatingSelect" name="cliente" {{block_select}}>
+                   
+              <option value="{{form_cliente.id}}" selected>{{form_cliente.numero_identificacao}} - {{form_cliente.nome}}</option>
+            
+              {% for cliente in form_clientes %}
+                <option value="{{cliente.id}}">{{cliente.numero_identificacao}} - {{cliente.nome}}</option>
+              {% endfor %}
+              
+              {% for cliente in form %}
+                <option value="{{cliente.id}}">{{cliente.numero_identificacao}} - {{cliente.nome}}</option>
+              {% endfor %}
+            </select>
+            
+            <label for="floatingSelect">Cliente</label>
+        </div>
+      </div>
+    </div>   
+
+    <div class="row g-1 p-1">
+
+      
+
+      <div class="col-md-4">
+     
+          <button name="btn_abrir_venda" id="btn_abrir_venda" type="submit" class="btn btn-primary mb-3" value="true">Abrir Venda</button>
+        
+      </div>
+      
+    </div> 
+
+    <hr>
+
+    <div class="row g-1 p-1">
+       
+        <div class="col-md-6">
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" name="produto" {{block_select_produto}}>
+                    <option value="{{form_produto.id}}" selected>{{form_produto.nome}}</option>
+                    
+                    {% for produto in form_produtos %}
+                        <option value="{{produto.id}}">{{produto.nome}} - R$ {{produto.preco_venda}}</option>
+                    {% endfor %}
+                </select>
+                <label for="floatingSelect">Produto</label>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="form-floating">
+              <input name="quantidade_produto_adicionado" class="form-control" id="floatingInputGrid" placeholder="" value="1" >
+              <label for="floatingInputGrid">Qnt.</label>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="form-floating">
+              <input name="valor_produto_adicionado" class="form-control" id="floatingInputGrid" placeholder="" value="Padrao" >
+              <label for="floatingInputGrid">Valor</label>
+            </div>
+          </div>
+
+          <div class="col-md-1">
+            
+            <button name="btn_add_produto" type="submit" class="btn btn-primary mb-3" value="true">+</button>
+            
+          </div>
+
+    </div>
+    
+    <div class="row g-1 p-1">
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" class="col-md-1">#</th>
+                <th scope="col" class="col-md-5">Produto</th>
+                <th scope="col" class="col-md-2">Quantidade</th>
+                <th scope="col" class="col-md-2">Valor Un.</th>
+                <th scope="col" class="col-md-2">Valor Total</th>
+                <th scope="col" class="col-md-1"></th>
+              </tr>
+            </thead>
+
+            
+              <tbody>
+               
+                  <!-- -->
+                    {% for venda_produto in form_pedido_venda_produtos %}
+                    <tr>
+                      <td>
+                        <input name="id_produto_adicionado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{venda_produto.id_produto.id}}">
+                      </td>
+                      <td>
+                        <input name="produto_adicionado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{venda_produto.id_produto.nome}}">
+                      </td>
+                      <td>
+                          <input name="quantidade_produto_adicionado#" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{venda_produto.quantidade|floatformat:"2"}}">
+                      </td>
+                      <td>
+                          <input name="valor_produto_adicionado#" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{venda_produto.preco_venda|floatformat:"2" }}">
+                      </td>
+                      <td>
+                          <input name="valor_total_produto_adicionado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{venda_produto.preco_total}}">
+                      </td>
+                    </tr>
+                    {% endfor %}
+                   
+             
+            </tbody>
+            
+        </table>
+        
+    </div>
+
+
+
+
+
+
+    <div class="row g-1 p-1">
+
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col" class="col-md-1">TOTAL</th>
+            </tr>
+          </thead>
+
+            <tbody>
+                  <tr>
+                    <td>
+                      <input name="valor_total_venda" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{valor_total_venda}}">
+                    </td>
+                  </tr>
+                 
+           
+          </tbody>
+          
+      </table>
+      
+  </div>
+
+
+
+
+    
+
+    <div class="row g-1 p-1">
+      
+      <div class="d-grid gap-2">
+          <button name="btn_gravar" class="btn btn-primary" type="submit" value='true'>Gravar</button>
+          <a href="{% url 'home' %}" class="btn btn-secondary">
+            <button name="btn_cancelar" class="btn btn-secondary" type="button">Cancelar</button>
+          </a>
+      </div>
+    </div>
+
+
+  
+  </form>
+
+</div>
+
+    {% endblock content %}

@@ -1,0 +1,215 @@
+{% extends 'app_front/partials/nav_bar.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    h1{
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    h2{
+        text-align: center;
+        font-size: 24px;
+    }
+</style>
+<div class="container">
+{% for empresa in form %}
+
+    <h1>{{empresa.nome}}</h1>
+    <h2>{{empresa.endereco}}, {{empresa.numero}} - {{empresa.bairro}} - {{empresa.cidade}}/{{empresa.estado}}</h2>
+    <h2>{{empresa.telefone1}}/{{empresa.whatsapp}} - {{empresa.site}} - {{empresa.email}}</h2>
+    <h2>{{empresa.observacao}}</h2>
+{% endfor %}
+</div>
+
+<hr>
+
+<div class="container">
+
+    <!--LINHA 1-->
+    <div class="row g-1 p-1">   
+
+        <div class="col-md-1">
+            <div class="form-floating">
+                
+    <input name="id" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_pedido_venda.id}}" readonly>
+    
+               
+                <label for="floatingInputGrid">Venda</label>
+            </div>
+        </div>
+        <div class="col-md-11">
+            <div class="form-floating">
+                <input name="nome" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.nome}}" readonly>
+                <label for="floatingInputGrid">Nome</label>
+            </div>
+        </div>
+
+    </div>
+
+    <!--LINHA 2-->
+    <div class="row g-1 p-1">   
+
+        <div class="col-md-6">
+            <div class="form-floating">
+              <input name="endereco" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.endereco}}" readonly>
+              <label for="floatingInputGrid">Endereço</label>
+            </div>
+          </div>
+    
+          <div class="col-md-2">
+            <div class="form-floating">
+              <input name="numero" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.numero}}" readonly>
+              <label for="floatingInputGrid">Número</label>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-floating">
+              <input name="complemento" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.complemento}}" readonly>
+              <label for="floatingInputGrid">Complemento</label>
+            </div>
+          </div>
+        
+    </div>
+
+    <!--LINHA 2-->
+    <div class="row g-1 p-1">   
+
+        <div class="col-md-6">
+            <div class="form-floating">
+              <input name="endereco" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.bairro}}" readonly>
+              <label for="floatingInputGrid">Bairro</label>
+            </div>
+          </div>
+    
+          <div class="col-md-2">
+            <div class="form-floating">
+              <input name="numero" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.cidade}}" readonly>
+              <label for="floatingInputGrid">Cidade</label>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-floating">
+              <input name="complemento" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.estado}}" readonly>
+              <label for="floatingInputGrid">Estado</label>
+            </div>
+          </div>
+        
+    </div>
+
+    <!--LINHA 2-->
+    <div class="row g-1 p-1">   
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input name="contato" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.contato}}" readonly>
+                <label for="floatingInputGrid">Contato</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input name="relefone1" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.telefone1}}" readonly>
+                <label for="floatingInputGrid">Telefone</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input name="relefone2" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.telefone2}}" readonly>
+                 <label for="floatingInputGrid">Telefone 2</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input name="whatsapp" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.whatsapp}}" readonly>
+                 <label for="floatingInputGrid">Whatsapp</label>
+            </div>
+        </div>
+        
+    </div>
+
+
+</div>
+
+
+<hr>
+
+<div class="container">
+
+    <div class="row g-1 p-1">
+
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col" class="col-md-1">#</th>
+              <th scope="col" class="col-md-5">Produto</th>
+              <th scope="col" class="col-md-2">Quantidade</th>
+              <th scope="col" class="col-md-2">Valor Un.</th>
+              <th scope="col" class="col-md-2">Valor Total</th>
+              <th scope="col" class="col-md-1"></th>
+            </tr>
+          </thead>
+
+          
+            <tbody>
+             
+                
+                  {% for pedido_venda_produto in form_pedido_venda %}
+                  <tr>
+                    <td>
+                      <input name="id_produto_adicionado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{pedido_venda_produto.id}}" readonly>
+                    </td>
+                    <td>
+                      <input name="produto_adicionado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{pedido_venda_produto.id_produto.nome}}" readonly>
+                    </td>
+                    <td>
+                        <input name="quantidade_produto_adicionado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{pedido_venda_produto.quantidade}}" readonly>
+                    </td>
+                    <td>
+                        <input name="valor_produto_adicionado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{pedido_venda_produto.id_produto.preco_venda}}" readonly>
+                    </td>
+                    <td>
+                        <input name="valor_total_produto_adicionado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{pedido_venda_produto.preco_total}}" readonly>
+                   
+                  </tr>
+                  {% endfor %}
+                 
+           
+          </tbody>
+          
+      </table>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" class="col-md-1">TOTAL</th>            
+          </tr>
+        </thead>
+
+          <tbody>
+                <tr>
+                  <td>
+                    <input name="id_produto_adicionado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="R$ {{form_valor_total}}" readonly>
+                  </td>
+                </tr>
+        </tbody>
+    </table>
+
+  </div>
+    
+</div>
+
+<a class="navbar-brand" href="{% url 'listachamados' %}">
+    <img src="{% static 'app_front\img\icons\back.png'%}" width="30" height="30" class="d-inline-block align-top" alt="back">
+    Voltar
+  </a>
+
+
+{% endblock content %}

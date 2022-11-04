@@ -1,0 +1,190 @@
+
+{% extends 'app_core/partials/nav_bar.html' %}
+
+{% block content %}
+
+<div class="container">
+
+  <form class="row" action="/cadastrar_cnpj" method="POST"> {% csrf_token %}
+
+    <div class="row g-1 p-1">
+      
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input name="cnpj" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">CNPJ</label>
+        </div>
+      </div> 
+
+      <div class="col-md-6">
+        <div class="form-floating">
+            <button name="btn_consultar_cnpj" type="submit" class="btn btn-primary mb-3">Consultar</button>
+        </div>
+       </div> 
+
+    </div>   
+      
+    <div class="row g-1 p-1">
+      <div class="col-md"><div class="form-floating">
+        <input name="nome" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+        <label for="floatingInputGrid">Nome</label>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input name="nome_fantasia" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Nome Fantasia</label>
+        </div>
+      </div> 
+    </div>
+
+    <div class="row g-1 p-1">
+            
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="cep" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">CEP</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+            <button name="btn_consultar_cep" type="submit" class="btn btn-primary mb-3">Consultar</button>
+        </div>
+       </div> 
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="cidade" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Cidade</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+          <input name="cidade" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">UF</label>
+        </div>
+      </div>
+    
+    </div>
+
+
+    <div class="row g-1 p-1">
+    
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input name="endereco" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Endereço</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+          <input name="endereco_numero" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Número</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="complemento" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Complemento</label>
+        </div>
+      </div>
+    
+    </div>
+    
+    <div class="row g-1 p-1">
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input name="bairro" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Bairro</label>
+        </div>
+      </div> 
+    </div>
+
+    <div class="row g-1 p-1">
+            
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="telefone1" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Telefone</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="contato" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Contato</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+    
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="telefone2" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Telefone 2</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="whatsapp" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">WhatsApp</label>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="row g-1 p-1">
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="email" type="email" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">E-mail</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="observacao" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Observação</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-1 p-1">
+
+      <div class="form-check form-switch">
+        <input name="check_cliente" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">É Cliente</label>
+      </div>
+      
+      <div class="form-check form-switch">
+        <input name="check_fornecedor" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+        <label class="form-check-label" for="flexSwitchCheckChecked">É Fornecedor</label>
+      </div>
+
+    </div>
+    
+    <div class="row g-1 p-1">
+      
+      <div class="d-grid gap-2">
+          <button name="btn_gravar" class="btn btn-primary" type="submit">Gravar</button>
+          <a href="{% url 'home' %}" class="btn btn-secondary">
+            <button name="btn_cancelar" class="btn btn-secondary" type="button">Cancelar</button>
+          </a>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+    {% endblock content %}

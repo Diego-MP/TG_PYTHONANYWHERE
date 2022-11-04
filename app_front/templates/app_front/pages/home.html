@@ -1,0 +1,57 @@
+{% extends 'app_front/partials/nav_bar.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row g-1 p-1">
+
+        <div class="row row-cols-1 row-cols-md-4 g-4" style="margin-top: 100px;">
+            
+                <div class="col">
+                    <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+                        <div class="card-header" style="color:white; font-weight: bold;">Clientes</div>
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:white; font-weight: bold;">Clientes Cadastrados</h5>
+                            <p class="card-text" style="font-size:40px; text-align: center; color:white; font-weight: bold;">{{clientes_cadastrados}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+                        <div class="card-header" style="color:white; font-weight: bold;">Produtos</div>
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:white; font-weight: bold;">Produtos Cadastrados</h5>
+                            <p class="card-text" style="font-size:40px; text-align: center; color:white; font-weight: bold;">{{produtos_cadastrados}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+                        <div class="card-header" style="color:white; font-weight: bold;">Chamados</div>
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:white; font-weight: bold;">Chamados Abertos</h5>
+                            <p class="card-text" style="font-size:40px; text-align: center; color:white; font-weight: bold;">{{chamados_cadastrados}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card text-bg-info mb-3" style="max-width: 18rem;">
+                        <div class="card-header" style="color:white; font-weight: bold;">Vendas</div>
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:white; font-weight: bold;">Vendas Realizadas</h5>
+                            <p class="card-text" style="font-size:40px; text-align: center; color:white; font-weight: bold;">{{vendas_cadastradas}}</p>
+                        </div>
+                    </div>
+                </div>
+        
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

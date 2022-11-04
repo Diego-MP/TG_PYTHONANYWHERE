@@ -1,0 +1,187 @@
+
+{% extends 'app_front/partials/nav_bar.html' %}
+
+{% block content %}
+{{object.imagem}}
+{{object.imagem.path}}
+{{object.imagem.url}}
+{{object.imagem.href}}
+<div class="container">
+  <!--ACTION E METHOD DO FORME CONTROLADO PELA VIEW PARA REAPROVEITAR O TEMPLATE-->
+  <form class="row" action="{{url_form_action}}" method="{{method_form}}"> {% csrf_token %}
+
+    <div class="row g-1 p-1">
+
+      <div class="col-md-1">
+        <div class="form-floating">
+          <input name="id" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.id}}" readonly>
+          <label for="floatingInputGrid">Id</label>
+        </div>
+      </div>
+      
+      <div class="col-md-11">
+        <div class="form-floating">
+          <input name="nome" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.nome}}">
+          <label for="floatingInputGrid">Nome do Produto</label>
+        </div>
+      </div> 
+ 
+
+    </div>   
+
+    <div class="row g-1 p-1">
+            
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="marca" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.marca}}">
+          <label for="floatingInputGrid">Marca</label>
+        </div>
+      </div>
+
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="modelo" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.modelo}}">
+          <label for="floatingInputGrid">Modelo</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input name="fornecedor" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.fornecedor}}">
+          <label for="floatingInputGrid">Fornecedor</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+            <select class="form-select" id="floatingSelect" name="unidade">
+            <option selected>{{form.unidade}}</option>
+            <option value="UN">Unidade</option>
+            <option value="PT">Pacote</option>
+            <option value="KT">Kit</option>
+            <option value="PC">Peça</option>
+            <option value="KG">Quilograma</option>
+            <option value="MT">Metro</option>
+            </select>
+            <label for="floatingSelect">Unidade</label>
+        </div>
+      </div>
+    
+    </div>
+
+
+    <div class="row g-1 p-1">
+    
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="codigo_interno" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.codigo_interno}}">
+          <label for="floatingInputGrid">Codigo Interno</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="codigo_barras" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.codigo_barras}}">
+          <label for="floatingInputGrid">Codigo de Barras</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="estoque" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.estoque}}">
+          <label for="floatingInputGrid">Estoque</label>
+        </div>
+      </div>
+    
+    </div>
+    
+    <div class="row g-1 p-1">
+      
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input name="preco_custo" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.preco_custo}}">
+                <label for="floatingInputGrid">Preço de Custo</label>
+            </div>
+        </div> 
+    
+        <div class="col-md">
+            <div class="form-floating">
+                <input name="preco_venda" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.preco_venda}}">
+                <label for="floatingInputGrid">Preço de Venda</label>
+            </div>
+        </div> 
+           
+        <div class="col-md">
+            <div class="form-floating">
+                <input name="grupo" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.grupo}}">
+                <label for="floatingInputGrid">Grupo</label>
+            </div>
+        </div> 
+      
+        <div class="col-md-2">
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" name="mobilizacao">
+                <option selected>{{form.mobilizacao}}</option>
+                <option value="REP">Reposicao</option>
+                <option value="VND">Venda</option>
+                <option value="GNT">Garantia</option>
+                </select>
+                <label for="floatingSelect">Mobilização</label>
+            </div>
+          </div>
+    </div>
+        
+
+   
+
+    <div class="row g-1 p-1">
+      
+      <div class="col-md-4">
+        <div class="form-floating">
+          <input name="descricao" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form.descricao}}">
+          <label for="floatingInputGrid">Descricao</label>
+        </div>
+      </div>
+
+   </div>
+
+  <div class="row g-1 p-1">
+
+    <div class="col-md-4">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile01">Imagem</label>
+        <input name="imagem" type="file" class="form-control" id="inputGroupFile01" value="">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row g-1 p-1">
+
+
+    <div class="col-md-4">
+      <div class="input-group mb-3">
+        <img src="{{form.imagem}}" class="img-thumbnail rounded mx-auto d-block">
+      </div>
+    </div>
+    
+  </div>
+
+ 
+    
+    <div class="row g-1 p-1">
+      
+      <div class="d-grid gap-2">
+          <button name="btn_gravar" class="btn btn-primary" type="submit">{{button_context}}</button>
+          <a href="{% url 'home' %}" class="btn btn-secondary">
+            <button name="btn_cancelar" class="btn btn-secondary" type="button">Cancelar</button>
+          </a>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+    {% endblock content %}

@@ -1,0 +1,282 @@
+{% extends 'app_front/partials/nav_bar.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    h1{
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    h2{
+        text-align: center;
+        font-size: 24px;
+    }
+    .linhaComTexto {
+        width: 100%;
+        height: 20px;
+        border-bottom: 1px solid black;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      
+      .linhaComTexto > span {
+        font-size: 20px;
+        background-color: #F3F5F6;
+        padding: 0 10px;
+        margin-bottom: 10px;
+      }
+</style>
+<div class="container">
+{% for empresa in form %}
+
+    <h1>{{empresa.nome}}</h1>
+    <h2>{{empresa.endereco}}, {{empresa.numero}} - {{empresa.bairro}} - {{empresa.cidade}}/{{empresa.estado}}</h2>
+    <h2>{{empresa.telefone1}}/{{empresa.whatsapp}} - {{empresa.site}} - {{empresa.email}}</h2>
+    <h2>{{empresa.observacao}}</h2>
+{% endfor %}
+</div>
+
+<hr>
+
+<div class="container">
+
+    <!--LINHA 1-->
+    <div class="row g-1 p-1">   
+
+        <div class="col-md-1">
+            <div class="form-floating">
+                <input name="id" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.id}}" readonly>
+                <label for="floatingInputGrid">Nº Chamado</label>
+            </div>
+        </div>
+        <div class="col-md-11">
+            <div class="form-floating">
+                <input name="nome" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.nome}}" readonly>
+                <label for="floatingInputGrid">Nome</label>
+            </div>
+        </div>
+
+    </div>
+
+    <!--LINHA 2-->
+    <div class="row g-1 p-1">   
+
+        <div class="col-md-6">
+            <div class="form-floating">
+              <input name="endereco" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.endereco}}" readonly>
+              <label for="floatingInputGrid">Endereço</label>
+            </div>
+          </div>
+    
+          <div class="col-md-2">
+            <div class="form-floating">
+              <input name="numero" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.numero}}" readonly>
+              <label for="floatingInputGrid">Número</label>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-floating">
+              <input name="complemento" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.complemento}}" readonly>
+              <label for="floatingInputGrid">Complemento</label>
+            </div>
+          </div>
+        
+    </div>
+
+    <!--LINHA 2-->
+    <div class="row g-1 p-1">   
+
+        <div class="col-md-6">
+            <div class="form-floating">
+              <input name="endereco" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.bairro}}" readonly>
+              <label for="floatingInputGrid">Bairro</label>
+            </div>
+          </div>
+    
+          <div class="col-md-2">
+            <div class="form-floating">
+              <input name="numero" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.cidade}}" readonly>
+              <label for="floatingInputGrid">Cidade</label>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-floating">
+              <input name="complemento" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.estado}}" readonly>
+              <label for="floatingInputGrid">Estado</label>
+            </div>
+          </div>
+        
+    </div>
+
+    <!--LINHA 2-->
+    <div class="row g-1 p-1">   
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input name="contato" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.contato}}" readonly>
+                <label for="floatingInputGrid">Contato</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input name="relefone1" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.telefone1}}" readonly>
+                <label for="floatingInputGrid">Telefone</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input name="relefone2" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.telefone2}}" readonly>
+                 <label for="floatingInputGrid">Telefone 2</label>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-floating">
+                <input name="whatsapp" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_cliente.whatsapp}}" readonly>
+                 <label for="floatingInputGrid">Whatsapp</label>
+            </div>
+        </div>
+        
+    </div>
+
+
+</div>
+
+
+<hr>
+
+<div class="container">
+ 
+
+    <div class="row g-1 p-1">
+        <div class="col-md">
+            <div class="form-floating">
+                <input name="defeito" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.defeito}}" readonly>
+                <label for="floatingInputGrid">Defeito</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-1 p-1">   
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input name="contato" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.contato_chamado}}" readonly>
+                <label for="floatingInputGrid">Solicitante</label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input name="relefone_chamado" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_chamado.telefone_chamado}}" readonly>
+                <label for="floatingInputGrid">Telefone</label>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+<hr>
+
+<div class="container">
+    <div class="linhaComTexto">
+        <span>INFORMACOES DA OS</span>
+    </div>
+    <p></p>
+
+
+    <div class="row g-1 p-1">
+        
+        
+        <!--
+
+        <div class="col-md-4">
+            <div class="form-floating">
+            <input name="produto" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.chamado.produto.nome}}">
+            <label for="floatingInputGrid">Produto</label>
+            </div>
+        </div>
+    -->
+    <div class="col-md-4">
+        <div class="form-floating">
+        <input name="equipamento" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.equipamento}}">
+        <label for="floatingInputGrid">Equipamento</label>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-floating">
+        <input name="numero_serie" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.numero_serie}}">
+        <label for="floatingInputGrid">NS</label>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="row g-1 p-1">
+
+    <div class="col-md-4">
+        <div class="form-floating">
+        <input name="tecnico" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.tecnico}}">
+        <label for="floatingInputGrid">Tecnico</label>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-floating">
+        <input name="peca" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.peca}}">
+        <label for="floatingInputGrid">Peça</label>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-floating">
+        <input name="valor" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.valor}}">
+        <label for="floatingInputGrid">Valor</label>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="row g-1 p-1">
+
+    <div class="col-md-8">
+        <div class="form-floating">
+        <input name="observacao" type="text" class="form-control" id="floatingInputGrid" placeholder="" value="{{form_os.observacao}}">
+        <label for="floatingInputGrid">Observao</label>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-floating">
+            <select class="form-select" id="floatingSelect" name="status2">
+            <option selected>{{form_chamado.status}}</option>
+            <option value="Pendente">Pendente</option>
+            <option value="Manutencao" selected>Manutencao</option>
+            <option value="Finalizada">Finalizada</option>
+            <option value="Reprovado">Reprovado</option>
+            </select>
+            <label for="floatingSelect">Status</label>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+<a class="navbar-brand" href="{% url 'listachamados' %}">
+    <img src="{% static 'app_front\img\icons\back.png'%}" width="30" height="30" class="d-inline-block align-top" alt="back">
+    Voltar
+  </a>
+
+ 
+
+
+{% endblock content %}

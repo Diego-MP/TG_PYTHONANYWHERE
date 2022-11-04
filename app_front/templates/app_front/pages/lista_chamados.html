@@ -1,0 +1,115 @@
+{% extends 'app_front/partials/nav_bar.html' %}
+{% load static %}
+{% block content %}
+
+    <div class='container'>
+
+        <h1>Lista de Chamados</h1>
+
+        <form class="row" action="/listar_chamados" method="POST"> {% csrf_token %}
+            <div class="col-auto">
+              <input type="text" class="form-control" id="inputPassword2" placeholder="Nome">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+            </div>
+          </form>
+        
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ident.</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Defeito</th>
+                <th scope="col">Contato</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Visualizar</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+                <th scope="col" class="col-md-1">A. OS</th>
+                <th scope="col" class="col-md-1">Edit. OS</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for chamado in form %}
+                <tr>
+                    <td>{{chamado.id}}</td>
+                    <td>{{chamado.cliente.numero_identificacao}}</td>
+                    <td>{{chamado.cliente.nome}}</td>
+
+                    <td>{{chamado.defeito}}</td>
+                    <td>{{chamado.contato_chamado}}</td>
+                    <td>{{chamado.telefone_chamado}}</td>
+
+                    <td class = "text-center">
+                      <a class="navbar-brand" href="{% url 'relatoriochamado' chamado.id %}">
+                            <img src="{% static 'app_front/img/icons/book_education_512.png'%}" width="30" height="30" class="d-inline-block align-top" name = {{cliente.id}} alt="editar">
+                        </a>
+                    </td>
+                    
+                    <td class = "text-center">
+                      <a class="navbar-brand" href="{% url 'alterarchamado' chamado.id %}">
+                            <img src="{% static 'app_front/img/icons/edit_512.png'%}" width="30" height="30" class="d-inline-block align-top" name = {{cliente.id}} alt="editar">
+                        </a>
+                    </td>
+                  
+                    <td class = "text-center">
+                      <a class="navbar-brand" href="{% url 'apagarchamado' chamado.id %}">
+                            <img src="{% static 'app_front/img/icons/trash_512.png'%}" width="30" height="30" class="d-inline-block align-top" alt="">
+                        </a>
+                    </td>
+
+                    <td class = "text-center">
+                      <a class="navbar-brand" href="{% url 'cadastraros' chamado.id %}">
+                            <img src="{% static 'app_front/img/icons/manutencao_512.png'%}" width="30" height="30" class="d-inline-block align-top" name = {{cliente.id}} alt="editar">
+                        </a>
+                    </td>
+
+                    <td class = "text-center">
+                      <a class="navbar-brand" href="{% url 'alteraros' chamado.id %}">
+                            <img src="{% static 'app_front/img/icons/edit_2_512.png'%}" width="30" height="30" class="d-inline-block align-top" name = {{cliente.id}} alt="editar">
+                        </a>
+                    </td>
+
+                    <td class = "text-center">
+                      <a class="navbar-brand" href="">
+                            <img src="{{chamado.logo_status}}" width="30" height="30" class="d-inline-block align-top" alt="">
+                        </a>
+                    </td>
+                    <td class = "text-center">
+                      {{form.logo_status}}
+                    </td>
+              </tr>
+
+              
+             {% endfor %}
+
+             <span>
+              
+              <img src="{% static 'app_front/img/icons/Blue_Alert_128.png'%}" width="30" height="30" class="d-inline-block align-top">
+              Pendente
+              <img src="{% static 'app_front/img/icons/Yellow_Alert_128.png'%}" width="30" height="30" class="d-inline-block align-top">
+              Manutenção
+              <img src="{% static 'app_front/img/icons/Green_Alert_128.png'%}" width="30" height="30" class="d-inline-block align-top">
+              Finalizado
+              <img src="{% static 'app_front/img/icons/Red_Alert_128.png'%}" width="30" height="30" class="d-inline-block align-top">
+              Reprovado
+            </span>
+
+            </tbody>
+          </table>
+
+
+           <div class='container'>
+            </div>
+
+
+
+    </div>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,87 @@
+{% extends 'app_front/partials/nav_bar.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <div class='container'>
+
+        <h1>Lista de Produtos</h1>
+
+        <form class="row" action="/listar_produtos" method="POST"> {% csrf_token %}
+            <div class="col-auto">
+              <input type="text" class="form-control" id="inputPassword2" placeholder="Nome">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+            </div>
+          </form>
+        
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Un</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Mobilização</th>
+                <th scope="col">Editar</th>
+                <th scope="col">A.Chamado</th>
+                <th scope="col">A.Venda</th>
+                <th scope="col">Excluir</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for produto in form %}
+                <tr>
+                    <td>{{produto.id}}</td>
+                    <td>{{produto.nome}}</td>
+                    <td>{{produto.marca}}</td>
+
+                    <td>{{produto.modelo}}</td>
+                    <td>{{produto.unidade}}</td>
+                    <td>{{produto.preco_venda}}</td>
+                    <td>{{produto.mobilizacao}}</td>
+                    
+                    <td class = "text-center">
+ 
+                      <a class="navbar-brand" href="{% url 'alterarproduto' produto.id %}">
+                            <img src="{% static 'app_front/img/icons/edit_512.png'%}" width="30" height="30" class="d-inline-block align-top" name = {{produto.id}} alt="editar">
+                        </a>
+                    </td>
+                    <td class = "text-center">
+                        <a class="navbar-brand" href="#">
+                            <img src="{% static 'app_front/img/icons/customer-service_512.png'%}" width="30" height="30" class="d-inline-block align-top" alt="">
+                        </a>
+                    </td>
+                    <td class = "text-center">
+                        <a class="navbar-brand" href="#">
+                            <img src="{% static 'app_front/img/icons/payment-method_512.png'%}" width="30" height="30" class="d-inline-block align-top" alt="">
+                        </a> 
+                    </td>
+                    <td class = "text-center">
+
+                        <a class="navbar-brand" href="{% url 'apagarproduto' produto.id %}">
+                            <img src="{% static 'app_front/img/icons/trash_512.png'%}" width="30" height="30" class="d-inline-block align-top" alt="">
+                        </a>
+                    </td>
+              </tr>
+             {% endfor %}
+
+            </tbody>
+          </table>
+
+
+           <div class='container'>
+            </div>
+
+
+
+    </div>
+
+
+
+
+{% endblock content %}

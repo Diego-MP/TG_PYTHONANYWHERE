@@ -1,0 +1,56 @@
+
+{% extends 'app_front/partials/nav_bar.html' %}
+
+{% block content %}
+
+<div class="container">
+  <!--ACTION E METHOD DO FORME CONTROLADO PELA VIEW PARA REAPROVEITAR O TEMPLATE-->
+  <form class="row" action="{{url_form_action}}" method="POST"> {% csrf_token %}
+
+    <div class="row g-1 p-1">
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input name="usuario" class="form-control" id="floatingInputGrid" placeholder="" value="">
+          <label for="floatingInputGrid">Usuário</label>
+        </div>
+      </div> 
+    </div>   
+
+    <div class="row g-1 p-1">
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input name="senha" class="form-control" id="floatingInputGrid" placeholder="" value="">
+            <label for="floatingInputGrid">Senha</label>
+          </div>
+        </div> 
+
+        <div class="col-md-6">
+          <div class="form-floating">
+            <span style="color:gray">
+                *Para alterar a senha entre com o Usuário e a senha nova e click em "Mudar Senha"
+            </span>
+          </div>
+        </div> 
+      </div>
+
+    </div>
+    
+    <div class="row g-1 p-1">
+      
+      <div class="d-grid gap-2">
+          <button name="btn_gravar" value="true" class="btn btn-primary" type="submit">Criar</button>
+          <button name="btn_alterar" value="true" class="btn btn-primary" type="submit">Mudar Senha</button>
+          
+          <a href="{% url 'home' %}" class="btn btn-secondary">
+            <button name="btn_cancelar" class="btn btn-secondary" type="button">Cancelar</button>   
+          </a>
+          
+          
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+    {% endblock content %}
